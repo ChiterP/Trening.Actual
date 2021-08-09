@@ -70,10 +70,11 @@ struct Details: View {
 
 struct ButtonView_Previews: PreviewProvider {
 
-    static let typeTrening = TypeTrening.getTypeTreningList()[0]
+    static let typeTrenings = TypeTrening.getTypeTreningList()[0]
+    
 
     static var previews: some View {
-        Details(typeTrening: typeTrening)
+        Details(typeTrening: typeTrenings)
     }
 }
 
