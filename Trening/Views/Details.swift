@@ -16,11 +16,13 @@ struct Details: View {
     
     var body: some View {
         
+        
+        
         VStack {
             List {
                 ForEach(inputTrenings, id: \.self) { trening in
                     if trening.treningType.nameTrening == typeTrening.nameTrening {
-                        Text("Дата: \(trening.date, style: .date)")
+                        Text(trening.date, style: .date)
                             .foregroundColor(.red)
                         
                         if trening.oneRepeat != "" {
@@ -60,17 +62,18 @@ struct Details: View {
                     }
                 }
             }
+            .colorMultiply(Color.gray)
+//            .navigationBarTitle("\(typeTrening.nameTrening)")
         }
-        .navigationBarTitle("\(typeTrening.nameTrening)")
     }
 }
 
 struct ButtonView_Previews: PreviewProvider {
-    
-    static let typeTrening = StorageManager.shared.fetchNameTrening()[0]
-    
+
+    static let typeTrening = TypeTrening.getTypeTreningList()[0]
+
     static var previews: some View {
-        Details.init(typeTrening: typeTrening)
+        Details(typeTrening: typeTrening)
     }
 }
 

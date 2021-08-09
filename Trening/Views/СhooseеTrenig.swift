@@ -17,36 +17,42 @@ struct ChooseTrenig: View {
     var body: some View {
         
         NavigationView {
-            VStack {
-                HStack {
-                    Text("Всего типов упражнений: ")
-                    Text("\(typeTrenings.count)")
-                        .frame(width: 30, alignment: .leading)
-                    
-                }
-                .padding()
-                
-                List {
-                    ForEach(typeTrenings, id: \.self) { trening in
-                        NavigationLink(destination: InTreningProcess(
-                            showModal: $showModal,
-                            nameTrening: trening.nameTrening
-                        )
-                        )
-                        {
-                            TreningRow(typeTrening: trening)
-                        }
+            
+            ZStack {
+                Color(.gray)
+                    .ignoresSafeArea()
+                VStack {
+                    HStack {
+                        Text("Всего типов упражнений: ")
+                        Text("\(typeTrenings.count)")
+                            .frame(width: 30, alignment: .leading)
+                        
                     }
+                    .padding()
                     
-                    .onDelete(perform: { indexSet in
-                        indexSet.forEach {
-                            typeTrenings.remove(at: $0)
-                            StorageManager.shared.deleteNameTrening(at: $0)
+                    List {
+                        ForEach(typeTrenings, id: \.self) { trening in
+                            NavigationLink(destination: InTreningProcess(
+                                showModal: $showModal,
+                                nameTrening: trening.nameTrening
+                            )
+                            )
+                            {
+                                TreningRow(typeTrening: trening)
+                            }
                         }
+                        
+                        .onDelete(perform: { indexSet in
+                            indexSet.forEach {
+                                typeTrenings.remove(at: $0)
+                                StorageManager.shared.deleteNameTrening(at: $0)
+                            }
+                        }
+                        )
                     }
-                    )
+                    .colorMultiply(Color(.gray))
+                    .navigationBarTitle("Тренируем сейчас")
                 }
-                .navigationBarTitle("Тренируем сейчас")
             }
         }
     }

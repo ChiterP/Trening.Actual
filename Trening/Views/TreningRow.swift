@@ -12,10 +12,9 @@ struct TreningRow: View {
     let typeTrening: TypeTrening
     
     var body: some View {
-        HStack {
+        ZStack {
             Text("\(typeTrening.nameTrening)")
                 .frame(width: 300, alignment: .leading)
-            Spacer()
         }
     }
 }

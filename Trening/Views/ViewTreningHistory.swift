@@ -15,27 +15,33 @@ struct ViewTreningHistory: View {
     
     var body: some View {
         
-        VStack {
-            Text("Всего \(inputTrenings.count)")
-                .padding(.top)
+        ZStack {
+            Color(.gray)
+                .ignoresSafeArea()
             
-            List {
-                ForEach(inputTrenings, id: \.self) { trening in
-                    HStack {
-                        Text("\(trening.treningType.nameTrening)")
-                            .frame(width: 220, alignment: .leading)
-                        Text("\((trening.date), style: .date)")
-                            .frame(width: 150, alignment: .leading)
-                    }
-                }
+            VStack {
+                Text("Всего \(inputTrenings.count)")
+                    .padding(.top)
                 
-                .onDelete(perform: { indexSet in
-                    indexSet.forEach {
-                        inputTrenings.remove(at: $0)
-                        StorageManager.shared.deleteInputTrening(at: $0)
+                List {
+                    ForEach(inputTrenings, id: \.self) { trening in
+                        HStack {
+                            Text("\(trening.treningType.nameTrening)")
+                                .frame(width: 220, alignment: .leading)
+                            Text("\((trening.date), style: .date)")
+                                .frame(width: 150, alignment: .leading)
+                        }
                     }
+                    
+                    .onDelete(perform: { indexSet in
+                        indexSet.forEach {
+                            inputTrenings.remove(at: $0)
+                            StorageManager.shared.deleteInputTrening(at: $0)
+                        }
+                    }
+                    )
                 }
-                )
+                .colorMultiply(Color(.gray))
             }
         }
     }

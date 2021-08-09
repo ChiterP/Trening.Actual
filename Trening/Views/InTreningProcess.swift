@@ -25,75 +25,80 @@ struct InTreningProcess: View {
     let date = Date()
     
     var body: some View {
-        VStack {
-            HStack {
-                Text("Тренировка: \(nameTrening) ")
-                    .padding()
+        
+        ZStack {
+            Color(.gray)
+                .ignoresSafeArea()
+            VStack {
+                HStack {
+                    Text("Тренировка: \(nameTrening) ")
+                        .padding()
+                    Spacer()
+                }
+                HStack {
+                    VStack {
+                        Text("Подход 1: ")
+                            .frame(height: 30)
+                        Text("Подход 2: ")
+                            .frame(height: 30)
+                        Text("Подход 3: ")
+                            .frame(height: 30)
+                        Text("Подход 4: ")
+                            .frame(height: 30)
+                        Text("Подход 5: ")
+                            .frame(height: 30)
+                    }
+                    VStack {
+                        TextField("60", text: $repeatOne)
+                            .border(Color.gray, width: 1)
+                            .frame(width: 40)
+                        TextField("60", text: $repeatTwo)
+                            .border(Color.gray, width: 1)
+                            .frame(width: 40)
+                        TextField("60", text: $repeatTree)
+                            .border(Color.gray, width: 1)
+                            .frame(width: 40)
+                        TextField("60", text: $repeatFour)
+                            .border(Color.gray, width: 1)
+                            .frame(width: 40)
+                        TextField("60", text: $repeatFive)
+                            .border(Color.gray, width: 1)
+                            .frame(width: 40)
+                    }
+                    VStack {
+                        TextField("", text: $repeatOneOne)
+                            .border(Color.gray, width: 1)
+                            .frame(width: 60)
+                        TextField("", text: $repeatTwoOne)
+                            .border(Color.gray, width: 1)
+                            .frame(width: 60)
+                        TextField("", text: $repeatTreeOne)
+                            .border(Color.gray, width: 1)
+                            .frame(width: 60)
+                        TextField("", text: $repeatFourOne)
+                            .border(Color.gray, width: 1)
+                            .frame(width: 60)
+                        TextField("", text: $repeatFiveOne)
+                            .border(Color.gray, width: 1)
+                            .frame(width: 60)
+                    }
+                    Spacer()
+                }
+                .padding()
+                
+                HStack {
+                    Text("Дата тренировки: \(date, style: .date)")
                 Spacer()
-            }
-            HStack {
-                VStack {
-                    Text("Подход 1: ")
-                        .frame(height: 30)
-                    Text("Подход 2: ")
-                        .frame(height: 30)
-                    Text("Подход 3: ")
-                        .frame(height: 30)
-                    Text("Подход 4: ")
-                        .frame(height: 30)
-                    Text("Подход 5: ")
-                        .frame(height: 30)
                 }
-                VStack {
-                    TextField("60", text: $repeatOne)
-                        .border(Color.gray, width: 1)
-                        .frame(width: 40)
-                    TextField("60", text: $repeatTwo)
-                        .border(Color.gray, width: 1)
-                        .frame(width: 40)
-                    TextField("60", text: $repeatTree)
-                        .border(Color.gray, width: 1)
-                        .frame(width: 40)
-                    TextField("60", text: $repeatFour)
-                        .border(Color.gray, width: 1)
-                        .frame(width: 40)
-                    TextField("60", text: $repeatFive)
-                        .border(Color.gray, width: 1)
-                        .frame(width: 40)
-                }
-                VStack {
-                    TextField("", text: $repeatOneOne)
-                        .border(Color.gray, width: 1)
-                        .frame(width: 60)
-                    TextField("", text: $repeatTwoOne)
-                        .border(Color.gray, width: 1)
-                        .frame(width: 60)
-                    TextField("", text: $repeatTreeOne)
-                        .border(Color.gray, width: 1)
-                        .frame(width: 60)
-                    TextField("", text: $repeatFourOne)
-                        .border(Color.gray, width: 1)
-                        .frame(width: 60)
-                    TextField("", text: $repeatFiveOne)
-                        .border(Color.gray, width: 1)
-                        .frame(width: 60)
-                }
-                Spacer()
-            }
-            .padding()
-            
-            HStack {
-                Text("Дата тренировки: \(date, style: .date)")
-            Spacer()
-            }
-            .padding()
-            
-            Button("Save") {
-                    SaveInputTrening()
-                    showModal.toggle()
+                .padding()
+                
+                Button("Save") {
+                        SaveInputTrening()
+                        showModal.toggle()
 
+                }
+                Spacer()
             }
-            Spacer()
         }
     }
     

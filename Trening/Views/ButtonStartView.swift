@@ -19,6 +19,7 @@ struct ButtonStartView: View {
                 .font(.subheadline)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
+                .font(.system(size: 20))
         }
         .padding()
         .frame(width: 300, height: 60)

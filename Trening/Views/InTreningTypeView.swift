@@ -24,11 +24,19 @@ struct InTreningTypeView: View {
                     Text("Добавь упражнение")
                         .font(.title)
                         .padding()
+                        .foregroundColor(.white)
                 }
                 
-                TextField("Стойка на руках", text: $treningType)
+                TextField("   Стойка на руках", text: $treningType)
+                    .foregroundColor(.white)
+                    .frame(width: 300, height: 40
+                           , alignment: .leading)
+                    .border(Color.white, width: 1)
+                    .cornerRadius(5)
+                    .overlay(RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.white, lineWidth: 1)
+                    )
                     .padding()
-                    .frame(alignment: .center)
                 
                 HStack {
 

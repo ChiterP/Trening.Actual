@@ -15,11 +15,15 @@ struct StartView: View {
     @State private var isPresentedProcess = false
     @State private var isPresentedHistory = false
     
+    @State private var alertPresented = false
+    
     
     @State private var isUpdateView = false
     
     let typeTrenings = StorageManager.shared.fetchNameTrening()
     let inputTrenings = StorageManager.shared.fetchInputTrening()
+    
+    @State private var treningType1 = ""
     
     @Binding var treningType: String
     
@@ -69,6 +73,9 @@ struct StartView: View {
                     ViewTreningHistory(
                         showModal: $isPresentedHistory)
                 }
+                
+
+                
                 Spacer()
             }
         }
