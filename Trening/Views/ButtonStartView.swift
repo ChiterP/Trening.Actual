@@ -28,6 +28,7 @@ struct ButtonStartView: View {
         .overlay(RoundedRectangle(cornerRadius: 20)
                     .stroke(Color.white, lineWidth: 2)
         )
+        .padding()
     }
 }
 

@@ -30,7 +30,7 @@ struct StartView: View {
     var body: some View {
         
         ZStack {
-            Color(.gray)
+            Color.gray
                 .ignoresSafeArea()
             
             VStack {

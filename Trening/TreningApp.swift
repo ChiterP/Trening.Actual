@@ -10,8 +10,6 @@ import SwiftUI
 @main
 struct TreningApp: App {
 
-    
-    
     var body: some Scene {
         WindowGroup {
             StartView(treningType: .constant("Mokkk"))

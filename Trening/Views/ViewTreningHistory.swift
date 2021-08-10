@@ -42,6 +42,7 @@ struct ViewTreningHistory: View {
                     )
                 }
                 .colorMultiply(Color(.gray))
+                .colorScheme(.light)
             }
         }
     }

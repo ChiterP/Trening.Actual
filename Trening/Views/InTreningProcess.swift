@@ -29,6 +29,7 @@ struct InTreningProcess: View {
         ZStack {
             Color(.gray)
                 .ignoresSafeArea()
+            
             VStack {
                 HStack {
                     Text("Тренировка: \(nameTrening) ")
@@ -99,6 +100,8 @@ struct InTreningProcess: View {
                 }
                 Spacer()
             }
+            .colorScheme(.light)
+
         }
     }
     

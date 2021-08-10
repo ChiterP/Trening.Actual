@@ -21,6 +21,7 @@ struct ChooseTrenig: View {
             ZStack {
                 Color(.gray)
                     .ignoresSafeArea()
+                
                 VStack {
                     HStack {
                         Text("Всего типов упражнений: ")
@@ -51,6 +52,7 @@ struct ChooseTrenig: View {
                         )
                     }
                     .colorMultiply(Color(.gray))
+                    .colorScheme(.light)
                     .navigationBarTitle("Тренируем сейчас")
                 }
             }
@@ -63,6 +65,7 @@ struct ChooseTrenig_Previews: PreviewProvider {
         ChooseTrenig(
             showModal: .constant(false)
         )
+        .preferredColorScheme(.dark)
     }
 }
 

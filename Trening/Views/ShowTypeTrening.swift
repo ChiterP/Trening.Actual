@@ -13,20 +13,23 @@ struct ShowTypeTrening: View {
     @State var typeTrenings: [TypeTrening] = StorageManager.shared.fetchNameTrening()
     
     var body: some View {
-                    
+        
+        ZStack {
+            Color(.gray)
+                .ignoresSafeArea()
+            
             NavigationView {
 
                 ZStack {
                     Color(.gray)
                         .ignoresSafeArea()
+                    
                     VStack {
                             HStack {
                                 Text("Всего типов упражнений: ")
                                 Text("\(typeTrenings.count)")
                                     .frame(width: 30, alignment: .leading)
-                                
                             }
-                            
                             .padding()
                             
                             List {
@@ -47,6 +50,7 @@ struct ShowTypeTrening: View {
                                 )
                             }
                             .colorMultiply(Color(.gray))
+                            .colorScheme(.light)
                             .navigationBarTitle("Мои тренировки")
                     }
                 }
@@ -54,11 +58,13 @@ struct ShowTypeTrening: View {
             }
         
         }
+    }
 }
 
 struct ShowTypeTrening_Previews: PreviewProvider {
         
     static var previews: some View {
-        ShowTypeTrening(showModal: .constant(false))
+            ShowTypeTrening(showModal: .constant(false))
+                .preferredColorScheme(.dark)
     }
 }
