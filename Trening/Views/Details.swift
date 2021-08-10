@@ -18,63 +18,70 @@ struct Details: View {
         
         
         
-        VStack {
-            List {
-                ForEach(inputTrenings, id: \.self) { trening in
-                    if trening.treningType.nameTrening == typeTrening.nameTrening {
-                        Text(trening.date, style: .date)
-                            .foregroundColor(.red)
-                        
-                        if trening.oneRepeat != "" {
-                            HStack {
-                                Text("Подход 1: \(trening.oneRepeat)")
-                                Text("\(trening.oneOneRepeat)")
+        ZStack {
+            Color(.gray)
+                .ignoresSafeArea()
+            
+            VStack {
+                
+                List {
+                    ForEach(inputTrenings, id: \.self) { trening in
+                        if trening.treningType.nameTrening == typeTrening.nameTrening {
+                            Text(trening.date, style: .date)
+                                .foregroundColor(.red)
+                            
+                            if trening.oneRepeat != "" {
+                                HStack {
+                                    Text("Подход 1: \(trening.oneRepeat)")
+                                    Text("\(trening.oneOneRepeat)")
+                                }
                             }
-                        }
-                        
-                        if trening.twoRepeat != "" {
-                            HStack {
-                                Text("Подход 2: \(trening.twoRepeat)")
-                                Text("\(trening.twoOneRepeat)")
+                            
+                            if trening.twoRepeat != "" {
+                                HStack {
+                                    Text("Подход 2: \(trening.twoRepeat)")
+                                    Text("\(trening.twoOneRepeat)")
+                                }
                             }
-                        }
-                        
-                        if trening.treeRepeat != "" {
-                            HStack {
-                                Text("Подход 3: \(trening.treeRepeat)")
-                                Text("\(trening.treeOneRepeat)")
+                            
+                            if trening.treeRepeat != "" {
+                                HStack {
+                                    Text("Подход 3: \(trening.treeRepeat)")
+                                    Text("\(trening.treeOneRepeat)")
+                                }
                             }
-                        }
-                        
-                        if trening.fourRepeat != "" {
-                            HStack {
-                                Text("Подход 4: \(trening.fourRepeat)")
-                                Text("\(trening.fourOneRepeat)")
+                            
+                            if trening.fourRepeat != "" {
+                                HStack {
+                                    Text("Подход 4: \(trening.fourRepeat)")
+                                    Text("\(trening.fourOneRepeat)")
+                                }
                             }
-                        }
-                        
-                        if trening.fiveRepeat != "" {
-                            HStack {
-                                Text("Подход 5: \(trening.fiveRepeat)")
-                                Text("\(trening.fiveOneRepeat)")
+                            
+                            if trening.fiveRepeat != "" {
+                                HStack {
+                                    Text("Подход 5: \(trening.fiveRepeat)")
+                                    Text("\(trening.fiveOneRepeat)")
+                                }
                             }
                         }
                     }
                 }
+                .padding(.top)
+                .colorMultiply(Color.gray)
+                .colorScheme(.light)
+                .navigationBarTitle("\(typeTrening.nameTrening)")
             }
-            .colorMultiply(Color.gray)
-//            .navigationBarTitle("\(typeTrening.nameTrening)")
         }
     }
 }
 
-struct ButtonView_Previews: PreviewProvider {
+struct Details_Previews: PreviewProvider {
 
-    static let typeTrenings = TypeTrening.getTypeTreningList()[0]
+    static let typeTrening = TypeTrening.getTypeTreningList()[0]
     
-
     static var previews: some View {
-        Details(typeTrening: typeTrenings)
+        Details(typeTrening: TypeTrening.init(nameTrening: "Уапражение"))
     }
 }
 
