@@ -32,11 +32,6 @@ struct InTreningProcess: View {
             
             VStack {
                 HStack {
-                    Text("Тренировка: \(nameTrening) ")
-                        .padding()
-                    Spacer()
-                }
-                HStack {
                     VStack {
                         Text("Подход 1: ")
                             .frame(height: 30)
@@ -93,15 +88,15 @@ struct InTreningProcess: View {
                 }
                 .padding()
                 
-                Button("Save") {
-                        SaveInputTrening()
-                        showModal.toggle()
-
+                ButtonAction(title: "Сохранить") {
+                    SaveInputTrening()
+                    showModal.toggle()
                 }
+               
                 Spacer()
             }
             .colorScheme(.light)
-
+            .navigationBarTitle(nameTrening)
         }
     }
     

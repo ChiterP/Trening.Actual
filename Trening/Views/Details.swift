@@ -16,14 +16,11 @@ struct Details: View {
     
     var body: some View {
         
-        
-        
         ZStack {
             Color(.gray)
                 .ignoresSafeArea()
             
             VStack {
-                
                 List {
                     ForEach(inputTrenings, id: \.self) { trening in
                         if trening.treningType.nameTrening == typeTrening.nameTrening {
@@ -71,17 +68,19 @@ struct Details: View {
                 .colorMultiply(Color.gray)
                 .colorScheme(.light)
                 .navigationBarTitle("\(typeTrening.nameTrening)")
+
             }
         }
     }
 }
 
 struct Details_Previews: PreviewProvider {
-
+    
     static let typeTrening = TypeTrening.getTypeTreningList()[0]
     
     static var previews: some View {
-        Details(typeTrening: TypeTrening.init(nameTrening: "Уапражение"))
+        Details(typeTrening: TypeTrening.init(nameTrening: "Stoika"))
+        
     }
 }
 
