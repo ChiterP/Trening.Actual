@@ -53,9 +53,11 @@ struct ChooseTrenig: View {
                     }
                     .colorMultiply(Color(.gray))
                     .colorScheme(.light)
-                    .navigationBarTitle("Тренируем сейчас")
+                    
                 }
+                
             }
+            .navigationBarTitle("Тренируем сейчас")
         }
     }
 }

@@ -27,9 +27,9 @@ struct ViewTreningHistory: View {
                     ForEach(inputTrenings, id: \.self) { trening in
                         HStack {
                             Text("\(trening.treningType.nameTrening)")
-                                .frame(width: 220, alignment: .leading)
-                            Text("\((trening.date), style: .date)")
-                                .frame(width: 150, alignment: .leading)
+                                .frame(width: 200, alignment: .leading)
+                            Text("\((trening.dateRepeate), style: .date)")
+                                .frame(width: 140, alignment: .leading)
                         }
                     }
                     

@@ -20,6 +20,7 @@ struct InTreningProcess: View {
     @State var repeatTreeOne = ""
     @State var repeatFourOne = ""
     @State var repeatFiveOne = ""
+    @State var repeatDate = Date()
         
     let nameTrening: String
     let date = Date()
@@ -82,11 +83,19 @@ struct InTreningProcess: View {
                 }
                 .padding()
                 
-                HStack {
-                    Text("Дата тренировки: \(date, style: .date)")
-                Spacer()
+                VStack {
+                    HStack {
+//                        Text("Дата тренировки: \(date, style: .date)")
+                    Spacer()
+                    }
+                    
+                    DatePicker(
+                        selection: $repeatDate,
+                        displayedComponents: [.date],
+                        label: { Text("Дата тренировки") }
+                    )
+                    .padding()
                 }
-                .padding()
                 
                 ButtonAction(title: "Сохранить") {
                     SaveInputTrening()
@@ -114,7 +123,8 @@ struct InTreningProcess: View {
                 twoOneRepeat: repeatTwoOne,
                 treeOneRepeat: repeatTreeOne,
                 fourOneRepeat: repeatFourOne,
-                fiveOneRepeat: repeatFiveOne
+                fiveOneRepeat: repeatFiveOne,
+                dateRepeate: repeatDate
             )
         )
     }

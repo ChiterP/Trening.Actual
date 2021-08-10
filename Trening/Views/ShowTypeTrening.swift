@@ -19,52 +19,50 @@ struct ShowTypeTrening: View {
                 .ignoresSafeArea()
             
             NavigationView {
-
+                
                 ZStack {
                     Color(.gray)
                         .ignoresSafeArea()
                     
                     VStack {
-                            HStack {
-                                Text("Всего типов упражнений: ")
-                                Text("\(typeTrenings.count)")
-                                    .frame(width: 30, alignment: .leading)
-                            }
-                            .padding()
-                            
-                            List {
-                                ForEach(typeTrenings, id: \.self) { trening in
-                                    NavigationLink(destination: Details(typeTrening: trening))
-                                    {
-                                        TreningRow(typeTrening: trening)
-                                    }
-                                    
+                        HStack {
+                            Text("Всего типов упражнений: ")
+                            Text("\(typeTrenings.count)")
+                                .frame(width: 30, alignment: .leading)
+                        }
+                        .padding()
+                        
+                        List {
+                            ForEach(typeTrenings, id: \.self) { trening in
+                                NavigationLink(destination: Details(typeTrening: trening))
+                                {
+                                    TreningRow(typeTrening: trening)
                                 }
                                 
-                                .onDelete(perform: { indexSet in
-                                    indexSet.forEach {
-                                        typeTrenings.remove(at: $0)
-                                        StorageManager.shared.deleteNameTrening(at: $0)
-                                    }
-                                }
-                                )
                             }
-                            .colorMultiply(Color(.gray))
-                            .colorScheme(.light)
-                            .navigationBarTitle("Мои тренировки")
+                            
+                            .onDelete(perform: { indexSet in
+                                indexSet.forEach {
+                                    typeTrenings.remove(at: $0)
+                                    StorageManager.shared.deleteNameTrening(at: $0)
+                                }
+                            }
+                            )
+                        }
+                        .navigationBarTitle("Мои тренировки")
+                        .colorMultiply(Color(.gray))
+                        .colorScheme(.light)
                     }
                 }
-
             }
-        
         }
     }
 }
 
 struct ShowTypeTrening_Previews: PreviewProvider {
-        
+    
     static var previews: some View {
-            ShowTypeTrening(showModal: .constant(false))
-                .preferredColorScheme(.dark)
+        ShowTypeTrening(showModal: .constant(false))
+            .preferredColorScheme(.dark)
     }
 }

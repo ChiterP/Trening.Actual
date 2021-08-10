@@ -42,6 +42,7 @@ struct InputTrening: Codable, Hashable {
     let treeOneRepeat: String
     let fourOneRepeat: String
     let fiveOneRepeat: String
+    let dateRepeate: Date
 }
 
 

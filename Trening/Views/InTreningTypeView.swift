@@ -19,6 +19,7 @@ struct InTreningTypeView: View {
         ZStack {
             Color(.gray)
                 .ignoresSafeArea()
+            
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
                 HStack {
                     Text("Добавь упражнение")

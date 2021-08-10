@@ -24,7 +24,7 @@ struct Details: View {
                 List {
                     ForEach(inputTrenings, id: \.self) { trening in
                         if trening.treningType.nameTrening == typeTrening.nameTrening {
-                            Text(trening.date, style: .date)
+                            Text(trening.dateRepeate, style: .date)
                                 .foregroundColor(.red)
                             
                             if trening.oneRepeat != "" {
@@ -65,11 +65,11 @@ struct Details: View {
                     }
                 }
                 .padding(.top)
-                .colorMultiply(Color.gray)
                 .colorScheme(.light)
-                .navigationBarTitle("\(typeTrening.nameTrening)")
+                .colorMultiply(Color.gray)
 
             }
+            .navigationBarTitle("\(typeTrening.nameTrening)")
         }
     }
 }
