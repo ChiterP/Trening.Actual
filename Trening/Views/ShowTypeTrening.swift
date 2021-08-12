@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ShowTypeTrening: View {
     @Binding var showModal: Bool
+    @State private var isPresentedInput = false
+    @State private var isUpdateView = false
+
     
     @State var typeTrenings: [TypeTrening] = StorageManager.shared.fetchNameTrening()
     
@@ -29,8 +32,17 @@ struct ShowTypeTrening: View {
                             Text("Всего типов упражнений: ")
                             Text("\(typeTrenings.count)")
                                 .frame(width: 30, alignment: .leading)
+                           
+                            Button("Add") {
+                                isPresentedInput.toggle()
+                            }
+                            .sheet(isPresented: $isPresentedInput) {
+                                InTreningTypeView(showModal: $isPresentedInput,
+                                                  UpdateView: $isUpdateView)
+                            }
+                            
                         }
-                        .padding()
+//                        .padding()
                         
                         List {
                             ForEach(typeTrenings, id: \.self) { trening in
@@ -49,11 +61,11 @@ struct ShowTypeTrening: View {
                             }
                             )
                         }
-                        .navigationBarTitle("Мои тренировки")
                         .colorMultiply(Color(.gray))
                         .colorScheme(.light)
                     }
                 }
+                .navigationBarTitle("Мои тренировки")
             }
         }
     }
@@ -63,6 +75,6 @@ struct ShowTypeTrening_Previews: PreviewProvider {
     
     static var previews: some View {
         ShowTypeTrening(showModal: .constant(false))
-            .preferredColorScheme(.dark)
+            .preferredColorScheme(.light)
     }
 }

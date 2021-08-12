@@ -53,16 +53,16 @@ struct InputTrening: Codable, Hashable {
 
 //MARK --------- Удалить !!!!  
 
-struct Headup: Codable, Hashable {
-    
-    let treningType: String
-    let oneRepeat: String
-    let twoRepeat: String
-    let treeRepeat: String
-    let fourRepeat: String
-    let fiveRepeat: String
-    let date: String
-}
+//struct Headup: Codable, Hashable {
+//    
+//    let treningType: String
+//    let oneRepeat: String
+//    let twoRepeat: String
+//    let treeRepeat: String
+//    let fourRepeat: String
+//    let fiveRepeat: String
+//    let date: String
+//}
 
 
 //extension Headup {

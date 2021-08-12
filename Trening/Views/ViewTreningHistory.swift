@@ -28,8 +28,8 @@ struct ViewTreningHistory: View {
                         HStack {
                             Text("\(trening.treningType.nameTrening)")
                                 .frame(width: 200, alignment: .leading)
-                            Text("\((trening.dateRepeate), style: .date)")
-                                .frame(width: 140, alignment: .leading)
+                            Text("\((trening.date), style: .date)")
+                                .frame(width: 140, alignment: .trailing)
                         }
                     }
                     

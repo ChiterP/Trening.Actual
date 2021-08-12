@@ -10,7 +10,7 @@ import SwiftUI
 
 struct StartView: View {
     
-    @State private var isPresentedInput = false
+//    @State private var isPresentedInput = false
     @State private var isPresentedShow = false
     @State private var isPresentedProcess = false
     @State private var isPresentedHistory = false
@@ -18,7 +18,7 @@ struct StartView: View {
     @State private var alertPresented = false
     
     
-    @State private var isUpdateView = false
+//    @State private var isUpdateView = false
     
     let typeTrenings = StorageManager.shared.fetchNameTrening()
     let inputTrenings = StorageManager.shared.fetchInputTrening()
@@ -40,13 +40,13 @@ struct StartView: View {
                     .foregroundColor(.white)
                     .padding()
                 
-                ButtonStartView(title: "Добавить упражнение") {
-                    isPresentedInput.toggle()
-                }
-                .sheet(isPresented: $isPresentedInput) {
-                    InTreningTypeView(showModal: $isPresentedInput,
-                                      UpdateView: $isUpdateView)
-                }
+//                ButtonStartView(title: "Добавить упражнение") {
+//                    isPresentedInput.toggle()
+//                }
+//                .sheet(isPresented: $isPresentedInput) {
+//                    InTreningTypeView(showModal: $isPresentedInput,
+//                                      UpdateView: $isUpdateView)
+//                }
                 
                 ButtonStartView(title: "Мои тренировки") {
                     isPresentedShow.toggle()

@@ -21,9 +21,14 @@ struct Details: View {
                 .ignoresSafeArea()
             
             VStack {
+                
+                
                 List {
                     ForEach(inputTrenings, id: \.self) { trening in
-                        if trening.treningType.nameTrening == typeTrening.nameTrening {
+                        
+                        if trening.treningType.nameTrening == typeTrening.nameTrening
+
+                        {
                             Text(trening.dateRepeate, style: .date)
                                 .foregroundColor(.red)
                             
@@ -62,17 +67,28 @@ struct Details: View {
                                 }
                             }
                         }
+                        
                     }
                 }
                 .padding(.top)
                 .colorScheme(.light)
                 .colorMultiply(Color.gray)
-
+                
+                
             }
             .navigationBarTitle("\(typeTrening.nameTrening)")
         }
     }
+    
+    
+    
+    
+    
 }
+
+
+
+
 
 struct Details_Previews: PreviewProvider {
     
