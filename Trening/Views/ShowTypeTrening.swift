@@ -12,6 +12,8 @@ struct ShowTypeTrening: View {
     @State private var isPresentedInput = false
     @State private var isUpdateView = false
 
+//    let typeTrenings = StorageManager.shared.fetchNameTrening()
+    @State var inputTrenings = StorageManager.shared.fetchInputTrening()
     
     @State var typeTrenings: [TypeTrening] = StorageManager.shared.fetchNameTrening()
     
